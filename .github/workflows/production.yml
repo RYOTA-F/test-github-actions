@@ -30,17 +30,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: API Install
+        shell: bash
+        run: docker-compose run --rm api yarn install
+
+      - name: API Lint
+        shell: bash
+        run: docker-compose run --rm api yarn lint
+
       - name: API Test
         shell: bash
-        run: |
-          docker-compose run --rm api yarn install
-          docker-compose run --rm api yarn lint
+        run: docker-compose run --rm api yarn test
 
-      - name: Front Test
+      - name: Front Install
         shell: bash
-        run: |
-          docker-compose run --rm front yarn install
-          docker-compose run --rm front yarn lint
+        run: docker-compose run --rm front yarn install
+
+      - name: Front Lint
+        shell: bash
+        run: docker-compose run --rm front yarn lint
 
       # - name: compose-run
       #   shell: bash
