@@ -33,9 +33,9 @@ jobs:
       - name: compose-run
         shell: bash
         run: |
-          docker-compose run --rm api yarn install
-          docker-compose run --rm front yarn install
-          docker-compose up -d
+          # docker-compose run --rm api yarn install
+          # docker-compose run --rm front yarn install
+          docker-compose down
 
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
