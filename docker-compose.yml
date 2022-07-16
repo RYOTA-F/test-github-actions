@@ -3,7 +3,7 @@ version: "3"
 services:
   front:
     container_name: github_actions_next
-    build: ./docker/next
+    build: ./next
     volumes:
       - ./next:/next
     tty: true
@@ -15,7 +15,7 @@ services:
 
   storybook:
     container_name: github_actions_storybook
-    build: ./docker/next
+    build: ./next
     volumes:
       - ./next:/next
     tty: true
@@ -27,7 +27,7 @@ services:
 
   api:
     container_name: github_actions_nest
-    build: ./docker/nest
+    build: ./nest
     tty: true
     ports:
       - 3000:3000
