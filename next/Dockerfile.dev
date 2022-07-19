@@ -2,6 +2,6 @@ FROM node:16.13
 
 WORKDIR /next
 
-RUN yarn install
+EXPOSE 80
 
-EXPOSE 8080
+CMD ["yarn", "dev"]

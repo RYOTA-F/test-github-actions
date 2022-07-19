@@ -1,0 +1,10 @@
+FROM node:16.13
+
+RUN npm i -g @nestjs/cli
+
+WORKDIR /nest
+COPY . .
+RUN yarn install && yarn build
+
+EXPOSE 3000
+CMD ["yarn", "start"]

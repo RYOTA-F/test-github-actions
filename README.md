@@ -15,41 +15,59 @@
 2. Build
 
 ```sh
-$ docker-compose build
+$ docker-compose -f docker-compose.{env}.yml build
 ```
 
 3. Nest install
 
 ```sh
-$ docker-compose run --rm api yarn install
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn install
 ```
 
 4. Next install
 
 ```sh
-$ docker-compose run --rm front yarn install
+$ docker-compose -f docker-compose.dev.yml run --rm front yarn install
 ```
 
 5. TypeORM Migration
 
 ```sh
-$ docker-compose run --rm api yarn migration:r
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn migration:r
 ```
 
 6. TypeORM Seed Run
 
 ```sh
-$ docker-compose run --rm api yarn seed:r
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn seed:r
 ```
 
 ---
 
 ## Run
 
-### Docker Run
+### Run Dev
 
 ```
-$ docker-compose up -d
+$ docker-compose -f docker-compose.dev.yml up -d
+```
+
+### Stop Dev
+
+```
+$ docker-compose -f docker-compose.dev.yml down
+```
+
+### Run Prod
+
+```
+$ docker-compose -f docker-compose.prod.yml up -d
+```
+
+### Stop Prod
+
+```
+$ docker-compose -f docker-compose.prod.yml down
 ```
 
 ---
@@ -81,19 +99,19 @@ localhost:3000/api/
 ### Migration Generate
 
 ```sh
-$ docker-compose run --rm api yarn migration:g {Model}Migration
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn migration:g {Model}Migration
 ```
 
 ### Migration Run
 
 ```sh
-$ docker-compose run --rm api yarn migration:r
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn migration:r
 ```
 
 ### Seed Run
 
 ```sh
-$ docker-compose run --rm api yarn seed:r
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn seed:r
 ```
 
 ---
@@ -103,20 +121,20 @@ $ docker-compose run --rm api yarn seed:r
 ### Create Module
 
 ```sh
-$ docker-compose run --rm api yarn nest g module {module_name}
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn nest g module {module_name}
 
 ```
 
 ### Create Controller
 
 ```sh
-$ docker-compose run --rm api yarn nest g controller {module_name}
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn nest g controller {module_name}
 ```
 
 ### Create Service
 
 ```sh
-$ docker-compose run --rm api yarn nest g service {module_name}
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn nest g service {module_name}
 ```
 
 ---
@@ -126,19 +144,19 @@ $ docker-compose run --rm api yarn nest g service {module_name}
 ### Nest: ESLint
 
 ```sh
-$ docker-compose run --rm api yarn lint
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn lint
 ```
 
 ### Next: ESLint
 
 ```sh
-$ docker-compose run --rm front yarn lint
+$ docker-compose -f docker-compose.dev.yml run --rm front yarn lint
 ```
 
 ### Next: ESLint:Fix
 
 ```sh
-$ docker-compose run --rm front yarn lint:fix
+$ docker-compose -f docker-compose.dev.yml run --rm front yarn lint:fix
 ```
 
 ---
@@ -148,5 +166,5 @@ $ docker-compose run --rm front yarn lint:fix
 ### Nest: Jest
 
 ```sh
-$ docker-compose run --rm api yarn test
+$ docker-compose -f docker-compose.dev.yml run --rm api yarn test
 ```
