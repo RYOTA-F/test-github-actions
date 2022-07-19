@@ -18,6 +18,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     depends_on:
       - db
+    command: "yarn start:dev"
 
   front:
     container_name: github_actions_next
@@ -31,6 +32,7 @@ services:
       - 80:80
     depends_on:
       - api
+    command: "yarn dev"
 
   storybook:
     container_name: github_actions_storybook

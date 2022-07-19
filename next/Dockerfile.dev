@@ -3,5 +3,3 @@ FROM node:16.13
 WORKDIR /next
 
 EXPOSE 80
-
-CMD ["yarn", "dev"]
